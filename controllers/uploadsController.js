@@ -12,7 +12,7 @@ exports.uploadProductImage = async(req, res) => {
         throw new CustomError.BadRequestError('Please Upload Image');
     };
 
-    const maxSize = 1000;
+    const maxSize = 1024 * 1024;
 
     if(productImage.size > maxSize){
         throw new CustomError.BadRequestError('Please upload a smaller image')
