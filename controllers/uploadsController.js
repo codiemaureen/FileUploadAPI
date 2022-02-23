@@ -8,5 +8,7 @@ exports.uploadProductImage = async(req, res) => {
 
     await productImage.mv(imagePath);
 
-    res.send('Upload Product Images');
+    return res
+        .status(StatusCodes.OK)
+        .json({image: {src: `/uploads/${productImage.name}`}});
 };
