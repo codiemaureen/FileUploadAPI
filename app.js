@@ -9,7 +9,8 @@ const app = express();
 // database
 const connectDB = require('./db/connect');
 
-
+//product route
+const productRouter = require('./routes/productRoutes');
 
 // error handler
 const notFoundMiddleware = require('./middleware/not-found');
@@ -23,6 +24,7 @@ app.get('/', (req, res) => {
 });
 
 
+app.use('/api/v1/products', productRouter);
 // middleware
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
